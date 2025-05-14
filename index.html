@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIKO - Asisten AI Serba Bisa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>CIKO BUG</h1>
+      <p>MURID PREMIUM BUG NOMOR</p>
+      <label for="userInput">MAU BUG TULIS SEPERTI CONTOH?</label><br />
+      <input type="text" id="userInput" placeholder="Contoh: .crash 62812xxxxxxxx" />
+      <br /><br />
+      <button onclick="kirimPesan()">KIRIM</button>
+    </div>
+  </div>
+
+  <script>
+    function kirimPesan() {
+      const nomor = "6283187872179"; // Ganti dengan nomor Anda
+      const pesan = document.getElementById("userInput").value;
+      if (pesan.trim() === "") {
+        alert("Silakan isi terlebih dahulu apa yang Anda butuhkan.");
+        return;
+      }
+      const encodedPesan = encodeURIComponent(pesan);
+      const url = `https://wa.me/${nomor}?text=${encodedPesan}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
