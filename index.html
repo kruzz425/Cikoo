@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIKO - BUG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h2>CIKO BUG</h2>
+   <label for="userInput">HANYA MEMBANTAI RIPPER</label><br />
+   
+   
+        <button onclick="toggleBugList()">TAMPILKAN LIST BUG</button>
+      <div id="bugList" class="bug-list">
+        <div class="bug-item" onclick="isiInput('.santet 628xx')"> SANTET</div>
+        <div class="bug-item" onclick="isiInput('.turu 628xx')"> TURU</div>
+        <div class="bug-item" onclick="isiInput('.virtexdoc 628xx')"> VIRTEXDOC</div>
+        <div class="bug-item" onclick="isiInput('.xcrash 628xx')"> XCRASH</div>
+      </div>
+
+      
+      <div>MAU BUG? PENCET LIST BUG 2x</div>
+      
+      <input type="text" id="userInput" placeholder="Contoh: .crash 628xxx" />
+      <br /><br />
+      <button onclick="kirimPesan()">KIRIM</button>
+    </div>
+  </div>
+
+  <script>
+    function kirimPesan() {
+      const nomor = "6283187872179"; // Ganti dengan nomor Anda
+      const pesan = document.getElementById("userInput").value;
+      if (pesan.trim() === "") {
+        alert("Silakan isi terlebih dahulu apa yang Anda butuhkan.");
+        return;
+      }
+      const encodedPesan = encodeURIComponent(pesan);
+      const url = `https://wa.me/${nomor}?text=${encodedPesan}`;
+      window.open(url, '_blank');
+    }
+
+    function toggleBugList() {
+      const list = document.getElementById("bugList");
+      list.style.display = list.style.display === "none" ? "block" : "none";
+    }
+
+    function isiInput(teks) {
+      document.getElementById("userInput").value = teks;
+    }
+  </script>
+</body>
+</html>
